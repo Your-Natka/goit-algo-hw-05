@@ -2,7 +2,7 @@ import re
 from typing import Callable, Generator
 
 
-def generator_numbers(text: str) -> Generator[float, None, None]:
+def generator_numbers(text: str) -> Generator[float, None, None] :
     """
     Генератор, що знаходить усі дійсні числа у тексті.
 
@@ -10,7 +10,7 @@ def generator_numbers(text: str) -> Generator[float, None, None]:
     :yield: Дійсне число, знайдене у тексті.
     """
     # Використовуємо регулярний вираз для пошуку чисел
-    for match in re.finditer(r'\b\d+(\.\d+)?\b', text):
+    for match in re.finditer(r'(?<=\s)\d+(\.\d+)?(?=\s)', text):
         yield float(match.group())
 
 
